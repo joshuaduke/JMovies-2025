@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
 const Search = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className="search">
