@@ -43,6 +43,7 @@ function Home() {
       }
 
       const data = await response.json();
+      console.log(data.results);
 
       if (data.response == "False") {
         setErrorMessage(data.error || "Failed to fetch movies");

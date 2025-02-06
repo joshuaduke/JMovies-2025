@@ -1,10 +1,18 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router";
 
 const MovieCard = ({
-  movie: { title, vote_average, poster_path, release_date, original_language },
+  movie: {
+    id,
+    title,
+    vote_average,
+    poster_path,
+    release_date,
+    original_language,
+  },
 }) => {
   return (
-    <div className="movie-card">
+    <Link className="movie-card" to={`/movie/${id}`}>
       <img
         src={
           poster_path
@@ -29,7 +37,7 @@ const MovieCard = ({
           {release_date ? release_date.split("-")[0] : "N/A"}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
