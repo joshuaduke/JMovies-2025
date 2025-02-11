@@ -7,6 +7,8 @@ import { useDebounce } from "react-use";
 import { getTrendingMovies, updateSearchCount } from "../../appwrite";
 import RecentMovies from "./TrendingMovies/RecentMovies";
 import ComingSoon from "./ComingSoon/ComingSoon";
+import Footer from "../Footer/Footer";
+import { Link } from "react-router";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -30,7 +32,9 @@ function Home() {
   const loadTrengingMovies = async () => {
     try {
       const movies = await getTrendingMovies();
+
       settrendingMovies(movies);
+      console.log("Trending Movies", trendingMovies);
     } catch (error) {
       console.error(`Error ferch trending movies: ${error}`);
     }
@@ -59,10 +63,10 @@ function Home() {
             <h2>Trending Movies</h2>
             <ul>
               {trendingMovies.map((movie, index) => (
-                <li key={movie.$id}>
+                <Link key={movie.$id} to={`/movie/${movie.movie_id}`}>
                   <p>{index + 1}</p>
                   <img src={movie.poster_url} alt={movie.title} />
-                </li>
+                </Link>
               ))}
             </ul>
           </section>
@@ -71,6 +75,7 @@ function Home() {
         <RecentMovies searchTerm={debounceSearchTerm} />
         <ComingSoon searchTerm={debounceSearchTerm} />
       </div>
+      <Footer />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-
+import { useNavigate, useParams } from "react-router";
+import Footer from "../Footer/Footer";
 // const data = {
 //   adult: false,
 //   backdrop_path: "/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
@@ -117,6 +117,7 @@ const API_OPTIONS = {
 };
 
 const Movie = () => {
+  const navigate = useNavigate();
   const [movieData, setmovieData] = useState([]);
   let { id } = useParams();
   // let id = 939243;
@@ -154,6 +155,15 @@ const Movie = () => {
         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieData.poster_path})`,
       }}
     >
+      <section className="p-4">
+        <ul className="flex flex-row justify-between">
+          <li>
+            <button onClick={() => navigate(-1)}>Back</button>
+          </li>
+          <li>Edit</li>
+        </ul>
+      </section>
+
       <section className="absolute bottom-0 ">
         <section className="bg-[rgba(100,0,0,0.5)] p-4 rounded-t-3xl">
           <div id="movie-title" className="flex flex-row justify-between">

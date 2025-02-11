@@ -61,7 +61,7 @@ const ComingSoon = ({ searchTerm }) => {
   }, [searchTerm]);
 
   return (
-    <section className="trending">
+    <section className="movies-list">
       <h2 className="my-4">Coming Soon</h2>
 
       {isLoading ? (

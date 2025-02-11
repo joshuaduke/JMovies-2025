@@ -62,15 +62,15 @@
       @apply flex flex-row overflow-y-auto gap-5  w-full hide-scrollbar;
     }
 
-    & ul li {
+    & ul a {
       @apply min-w-[230px] flex flex-row items-center;
     }
 
-    & ul li p {
+    & ul a p {
       @apply fancy-text mt-[22px] text-nowrap;
     }
 
-    & ul li img {
+    & ul a img {
       @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
     }
   }
@@ -91,12 +91,23 @@
     }
   }
 
-  .all-movies {
-    @apply space-y-9;
+  .movies-list {
+    @apply mt-20;
 
     & ul {
-      /* @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4; */
-      @apply flex flex-row overflow-y-auto gap-5 w-full 
+      @apply flex flex-row overflow-y-auto gap-5  w-full hide-scrollbar;
+    }
+
+    & ul li {
+      @apply min-w-[230px] flex flex-row items-center;
+    }
+
+    & ul li p {
+      @apply fancy-text mt-[22px] text-nowrap;
+    }
+
+    & ul li img {
+      @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
     }
   }
 
