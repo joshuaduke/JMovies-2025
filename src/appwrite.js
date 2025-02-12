@@ -22,6 +22,20 @@ export const createUser = async (email, password) => {
     }
 }
 
+export const signIn = async (email, password) => {
+    try {
+        const promise = account.createEmailPasswordSession(email, password)
+
+        promise.then((response) => {
+            console.log(response)
+        })
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
+
 export const updateSearchCount = async (searchTerm, movie) =>{
     // use appwrite sdk to check if document exists in the db
     try {

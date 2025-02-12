@@ -1,17 +1,16 @@
-import React from "react";
 import { useState } from "react";
-import { createUser } from "../../appwrite";
+import { signIn } from "../../appwrite";
 import { useNavigate } from "react-router";
 
-const SignUp = () => {
+const SignIn = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
 
-  function signUpUser(e) {
+  function signInUser(e) {
     // const query = formData.get("email");
     e.preventDefault();
-    createUser(email, password);
+    signIn(email, password);
     navigate("/");
   }
 
@@ -19,11 +18,11 @@ const SignUp = () => {
   return (
     <form
       noValidate
-      onSubmit={signUpUser}
+      onSubmit={signInUser}
       className="text-white px-6 h-screen flex flex-col"
     >
       <section className="p-8 border-amber-100 border-2 rounded-lg h-fit my-auto mx-0">
-        <h1 className="text-left text-4xl">Sign up</h1>
+        <h1 className="text-left text-4xl">Sign in</h1>
         <fieldset className="my-4">
           <label htmlFor="" className="opacity-70">
             Email
@@ -54,20 +53,25 @@ const SignUp = () => {
         </fieldset>
 
         <button className="bg-white text-black w-full py-1 px-2 rounded-lg mb-6">
-          Sign up
+          Sign in
         </button>
+
+        <div className="text-center ">
+          <a href="">Forgot your password?</a>
+          <p>or</p>
+        </div>
 
         <button
           type="submit"
           className=" text-white border-white border-2 w-full py-1 px-2 rounded-lg my-6"
         >
-          Sign up with Google
+          Sign in with Google
         </button>
         <div className="text-center">
           <p>
-            Have an account?{" "}
+            Don't Have an account?{" "}
             <a href="" className="underline">
-              Sign in
+              Sign up
             </a>
           </p>
         </div>
@@ -76,4 +80,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
