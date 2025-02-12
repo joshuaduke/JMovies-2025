@@ -9,6 +9,7 @@ const client = new Client().setEndpoint('https://cloud.appwrite.io/v1').setProje
 const database = new Databases(client);
 
 export const account = new Account(client);
+export const user = await account.get();
 
 // export const user = await account.create(ID.unique(), 'email@example.com', 'password');
 
