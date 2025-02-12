@@ -1,4 +1,4 @@
-import { Client, ID, Query, Databases } from "appwrite";
+import { Client, ID, Query, Databases, Account } from "appwrite";
 
 const PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
@@ -7,6 +7,20 @@ const COLLECTION_ID = import.meta.env.VITE_APPRWITE_COLLECTION_ID;
 const client = new Client().setEndpoint('https://cloud.appwrite.io/v1').setProject(PROJECT_ID)
 
 const database = new Databases(client);
+
+export const account = new Account(client);
+
+// export const user = await account.create(ID.unique(), 'email@example.com', 'password');
+
+export const createUser = async (email, password) => {
+    try {
+        const result = await account.create(ID.unique(), email, password)
+        console.log('User created', result);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 export const updateSearchCount = async (searchTerm, movie) =>{
     // use appwrite sdk to check if document exists in the db

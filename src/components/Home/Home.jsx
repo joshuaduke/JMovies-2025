@@ -60,7 +60,7 @@ function Home() {
 
         {trendingMovies.length > 0 && (
           <section className="trending">
-            <h2>Trending Movies</h2>
+            <h2>What is Popular on JMovies</h2>
             <ul>
               {trendingMovies.map((movie, index) => (
                 <Link key={movie.$id} to={`/movie/${movie.movie_id}`}>

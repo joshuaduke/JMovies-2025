@@ -62,7 +62,12 @@ const RecentMovies = ({ searchTerm }) => {
 
   return (
     <section className="movies-list">
-      <h2 className="my-4">All Movies</h2>
+      <div className="flex flex-row justify-between">
+        <h2 className="my-4">All Movies</h2>
+        <a href="" className="text-white">
+          see all
+        </a>
+      </div>
 
       {isLoading ? (
         <Spinner />
